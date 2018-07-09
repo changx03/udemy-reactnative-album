@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { ScrollView } from 'react-native';
 import AlbumDetail from './AlbumDetail';
 
 export default class AlbumList extends Component {
   state = {
-    albums: []
+    albums: [],
   };
 
   async componentDidMount() {
     try {
-      const res = await fetch('https://rallycoding.herokuapp.com/api/music_albums');
+      const res = await fetch(
+        'https://rallycoding.herokuapp.com/api/music_albums'
+      );
       const jsonRes = await res.json();
       this.setState({
-        albums: jsonRes
+        albums: jsonRes,
       });
     } catch (err) {
       console.error(err);
@@ -21,13 +23,11 @@ export default class AlbumList extends Component {
 
   render() {
     return (
-      <View>
-        {
-          this.state.albums.map(
-            album => <AlbumDetail key={album.title} album={album} />
-          )
-        }
-      </View>
+      <ScrollView>
+        {this.state.albums.map(album => (
+          <AlbumDetail key={album.title} album={album} />
+        ))}
+      </ScrollView>
     );
   }
 }

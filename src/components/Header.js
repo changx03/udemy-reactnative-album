@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 const Header = props => {
   const { textStyle, viewStyle } = styles;
@@ -18,15 +18,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 60,
     paddingTop: 15,
-    shadowColor: '#000',  // PLATFORM: iOS
+    shadowColor: '#000', // PLATFORM: iOS
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     elevation: 2, // Android-only: drop shadow
-    // position: 'relative' // rekatuve by default
+    // position: 'relative' // relative by default
   },
   textStyle: {
-    fontSize: 20
-  }
+    fontSize: 20,
+  },
 });
 
 export default Header;
